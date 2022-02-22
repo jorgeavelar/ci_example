@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# script/test: Run test suite for application.
+
+set -e
+
+(
+
+cd "$(dirname "$0")/.."
+
+if command -v docker-compose >/dev/null 2>&1; then
+  docker-compose run web pytest -v
+else
+    pytest -v
+fi
+
+)

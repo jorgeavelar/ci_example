@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/ci_example
+    docker: # run the steps with Docker
+      - image: cimg/python:3.10.2
+    steps: # steps that comprise the `build` job
+      - checkout # check out source code to working directory
+      - run: sudo chown -R circleci:circleci /usr/local/bin
+      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+      - run:
+          command: |
+            sudo pip install -r requirements.txt
+      - run:
+          command: |
+            pytest -v
