@@ -11,11 +11,6 @@ def test_health_route_sucessfuly():
     assert response.json() == {"status": "ok"}
 
 
-def test_health_route_failure():
+def test_health_not_found():
     response = client.get("/foobar")
-    assert response.status_code == 400
-
-
-def test_with_wrong_test():
-    response = client.get("/foobar")
-    assert response.status_code == 200
+    assert response.status_code == 404
