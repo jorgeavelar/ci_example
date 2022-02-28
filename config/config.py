@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseSettings
 
 # Initialize FastAPI
-app = FastAPI(title="Imapy - Imaflora API ", version="0.1.0")
+app = FastAPI(title="Example API ", version="0.1.0")
 
 # Config CORS
 app.add_middleware(
@@ -14,6 +14,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 class Settings(BaseSettings):
     pass
-
